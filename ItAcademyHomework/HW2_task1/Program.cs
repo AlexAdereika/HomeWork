@@ -18,8 +18,7 @@ namespace HW2_task1
             while (userInput != 0);
             Console.WriteLine($"Number of numbers:{counter}");
             Console.WriteLine($"The sum of numbers:{sum}");
-
-
+            Console.WriteLine($"The average numbers:{sum/counter}");
 
 
         }

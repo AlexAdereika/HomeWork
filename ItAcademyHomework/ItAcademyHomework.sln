@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW1_task2", "HW1_task2\HW1_
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW1_task3", "HW1_task3\HW1_task3.csproj", "{A03625E3-03E8-4748-AD4E-043B6CB38483}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{27EEE7A3-D949-458B-B38B-5968D6165CB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "Test\Test.csproj", "{27EEE7A3-D949-458B-B38B-5968D6165CB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProtection", "TestProtection\TestProtection.csproj", "{DB587CCE-678B-4138-ADEB-CCB05B4AF886}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{27EEE7A3-D949-458B-B38B-5968D6165CB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27EEE7A3-D949-458B-B38B-5968D6165CB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27EEE7A3-D949-458B-B38B-5968D6165CB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB587CCE-678B-4138-ADEB-CCB05B4AF886}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB587CCE-678B-4138-ADEB-CCB05B4AF886}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB587CCE-678B-4138-ADEB-CCB05B4AF886}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB587CCE-678B-4138-ADEB-CCB05B4AF886}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

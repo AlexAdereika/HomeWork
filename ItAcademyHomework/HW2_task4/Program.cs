@@ -30,50 +30,88 @@ namespace HW2_task4
             double x = 0;
             double y = 0;
 
-            Console.WriteLine("Please, choose operation: +, -, *, /, ^, ! or enter 'End' for exit ");
+            Console.WriteLine("Please, choose operation: + - * / ^ !");
+            Console.WriteLine("If you want to sum several numbers, enter 'Sum'");
+            Console.WriteLine("Enter 'End' for exit");
             string operation = Convert.ToString(Console.ReadLine());
-            if (operation == "End") //выход из рекурсии
+
+            bool Input = (operation == "+") || (operation == "-") || (operation == "*") ||
+                (operation == "/") || (operation == "^") || (operation == "!") || (operation == "Sum") | (operation == "End");
+            if (Input == true)
             {
-                return;
-            }
-            if (operation == "!")
-            {
-                x = EnterNumber();
-                var result = Factorial(x);
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(Factorial(x));
-                Console.ForegroundColor = ConsoleColor.White;
-                ChooseOperation();
+                if (operation == "End") //выход из рекурсии
+                {
+                    return;
+                }
+                else if (operation == "!")
+                {
+                    x = EnterNumber();
+                    var result = Factorial(x);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine(Factorial(x));
+                    Console.ForegroundColor = ConsoleColor.White;
+                    ChooseOperation();
+                }
+                else if (operation == "Sum")
+                {
+                    Console.WriteLine("How many number do you want to sum?");
+                    int Elements = Convert.ToInt32(Console.ReadLine());
+                    double[] SumArray = new double[Elements];
+                    for (int i = 0; i < SumArray.Length; i++)
+                    {
+                        Console.WriteLine($"Enter {i + 1} number:");
+                        SumArray[i] = Convert.ToDouble(Console.ReadLine());
+                    }
+                    double SumNumbersOfArray = 0;
+                    for (int i = 0; i < SumArray.Length; i++)
+                    {
+                        SumNumbersOfArray += SumArray[i];
+
+                    }
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"Sum of all numbers = {SumNumbersOfArray}");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    ChooseOperation();
+                }
+                else
+                {
+                    x = EnterNumber();
+                    y = EnterNumber();
+
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    switch (operation)
+                    {
+                        case "+":
+                            Console.WriteLine($"{x}+{y}={x + y}");
+                            break;
+                        case "-":
+                            Console.WriteLine($"{x}-{y}={x - y}");
+                            break;
+                        case "*":
+                            Console.WriteLine($"{x}*{y}={x * y}");
+                            break;
+                        case "/":
+                            Console.WriteLine($"{x}/{y}={x / y}");
+                            break;
+                        case "^":
+                            Console.WriteLine($"{x}^{y}={Math.Pow(x, y)}");
+                            break;
+                        default:
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("Incorrect operation!");
+                            break;
+                    }
+                    Console.ForegroundColor = ConsoleColor.White;
+                    ChooseOperation();
+                        ;
+                }
+
+
             }
             else
             {
-                x = EnterNumber();
-                y = EnterNumber();
-
-                Console.ForegroundColor = ConsoleColor.Green;
-                switch (operation)
-                {
-                    case "+":
-                        Console.WriteLine($"{x}+{y}={x + y}");
-                        break;
-                    case "-":
-                        Console.WriteLine($"{x}-{y}={x - y}");
-                        break;
-                    case "*":
-                        Console.WriteLine($"{x}*{y}={x * y}");
-                        break;
-                    case "/":
-                        Console.WriteLine($"{x}/{y}={x / y}");
-                        break;
-                    case "^":
-                        Console.WriteLine($"{x}^{y}={Math.Pow(x, y)}");
-                        break;
-                    default:
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Incorrect operation!");
-                        break;
-                }
-
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Incorrect operation!");
                 Console.ForegroundColor = ConsoleColor.White;
                 ChooseOperation();
             }
@@ -81,9 +119,20 @@ namespace HW2_task4
             static double EnterNumber() //ввод числа
             {
                 Console.WriteLine("Enter number:");
-                var userInput = Console.ReadLine();
-                var x = Convert.ToDouble(userInput);
-                return x;
+                double x = 0;
+
+                if (Double.TryParse(Console.ReadLine(), out var userInput)) 
+                {
+                    x = userInput;
+                    return x;
+                }
+                else
+                {
+                    Console.WriteLine("This is not a number, repeat the input");
+                    EnterNumber();
+                    
+                }
+                return userInput;
             }
 
             static double Factorial(double x) // подсчёт факториала 

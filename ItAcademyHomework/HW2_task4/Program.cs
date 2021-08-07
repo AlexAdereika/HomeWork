@@ -58,9 +58,11 @@ namespace HW2_task4
                     int Elements = Convert.ToInt32(Console.ReadLine());
                     double[] SumArray = new double[Elements];
                     for (int i = 0; i < SumArray.Length; i++)
-                    {
-                        Console.WriteLine($"Enter {i + 1} number:");
-                        SumArray[i] = Convert.ToDouble(Console.ReadLine());
+                    { //Сразу было так:
+                        //Console.WriteLine($"Enter {i + 1} number:");
+                        //SumArray[i] = Convert.ToDouble(Console.ReadLine());
+                        //Потом добавил проверку на ввод числа и заполняю массив через метод:
+                        SumArray[i] = EnterNumber();
                     }
                     double SumNumbersOfArray = 0;
                     for (int i = 0; i < SumArray.Length; i++)
@@ -103,7 +105,7 @@ namespace HW2_task4
                     }
                     Console.ForegroundColor = ConsoleColor.White;
                     ChooseOperation();
-                        ;
+                    ;
                 }
 
 
@@ -118,21 +120,15 @@ namespace HW2_task4
 
             static double EnterNumber() //ввод числа
             {
+                double userInput = 0;
                 Console.WriteLine("Enter number:");
-                double x = 0;
-
-                if (Double.TryParse(Console.ReadLine(), out var userInput)) 
-                {
-                    x = userInput;
-                    return x;
-                }
-                else
+                while (!Double.TryParse(Console.ReadLine(), out userInput))
                 {
                     Console.WriteLine("This is not a number, repeat the input");
-                    EnterNumber();
-                    
+
                 }
-                return userInput;
+                double x = userInput;
+                return x;
             }
 
             static double Factorial(double x) // подсчёт факториала 

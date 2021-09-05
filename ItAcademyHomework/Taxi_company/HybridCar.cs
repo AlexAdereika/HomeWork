@@ -8,14 +8,16 @@ namespace Taxi_company
 {
     class HybridCar : CarInCompany
     {
-        public Fuel FuelType = Fuel.Hybrid;
+        
         public string FuelConsumption = "Depends on your driving style!";
-        public HybridCar(string Model, int Cost, int Speed)
+        public HybridCar(string Model, int Cost, int Speed) : base(Model, Cost, Speed, Fuel.Hybrid)
         {
-            CarModel = Model;
-            CarCost = Cost;
-            MaxSpeed = Speed;
-            
+
         }
+        public override string ToString()
+        {
+            return base.ToString() + $"\t {FuelConsumption}";
+        }
+
     }
 }

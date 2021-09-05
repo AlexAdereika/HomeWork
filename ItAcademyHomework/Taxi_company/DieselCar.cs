@@ -6,16 +6,12 @@ using System.Threading.Tasks;
 
 namespace Taxi_company
 {
-    class DieselCar : CarInCompany
+    class DieselCar : ConsumptionCar
     {
-        public Fuel FuelType = Fuel.Diesel;
-        public int FuelConsumption { get; set; }
-        public DieselCar(string Model, int Cost, int Speed, int Consumption)
+        
+        public DieselCar(string Model, int Cost, int Speed, int Consumption):base(Model, Cost, Speed, Consumption, Fuel.Diesel)
         {
-            CarModel = Model;
-            CarCost = Cost;
-            MaxSpeed = Speed;
-            FuelConsumption = Consumption;
+           
         }
     }
 }

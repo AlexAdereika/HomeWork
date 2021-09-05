@@ -42,11 +42,11 @@ namespace Taxi_company
                 var X = (x as ConsumptionCar)?.FuelConsumption;
                 if (!X.HasValue)
                     return 1;
-                
+
                 var Y = (y as ConsumptionCar)?.FuelConsumption;
                 if (!Y.HasValue)
                     return 1;
-                
+
                 return X.Value - Y.Value;
             }
 
@@ -56,7 +56,7 @@ namespace Taxi_company
             foreach (var Car in Cars)
             {
                 Console.WriteLine(Car.ToString());
-                
+
             }
             Console.WriteLine();
         }
@@ -64,18 +64,17 @@ namespace Taxi_company
         {
             foreach (var Car in Cars)
             {
-                
+
                 Console.WriteLine($"{Car.CarModel} \t {Car.MaxSpeed} km/h");
 
             }
-            
+
         }
 
         public IEnumerable<CarInCompany> GetBySpeed(int minSpeed, int maxSpeed)
         {
             return Cars.Where(c => minSpeed <= c.MaxSpeed && c.MaxSpeed <= maxSpeed);
 
-            Console.WriteLine("\t {}");
         }
 
     }

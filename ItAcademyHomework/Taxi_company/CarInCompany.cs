@@ -6,12 +6,24 @@ using System.Threading.Tasks;
 
 namespace Taxi_company
 {
-    class CarInCompany
+    abstract class CarInCompany
     {
-        public string CarModel { get; set; }
-        public int CarCost { get; set; }
-        public int MaxSpeed { get; set; }
+        public Fuel FuelType { get; private set; }
+        public string CarModel { get; private set; }
+        public int CarCost { get; private set; }
+        public int MaxSpeed { get; private set; }
 
+        public CarInCompany(string Model, int Cost, int Speed, Fuel fuelType)
+        {
+            CarModel = Model;
+            CarCost = Cost;
+            MaxSpeed = Speed;
+            FuelType = fuelType;
+        }
+        public override string ToString()
+        {
+            return $"{CarModel} \t {FuelType}";
+        }
     }
     public enum Fuel
     {
@@ -21,7 +33,7 @@ namespace Taxi_company
         Hybrid
     }
 
-   
+
 
 
 }
